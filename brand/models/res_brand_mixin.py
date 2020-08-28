@@ -54,12 +54,12 @@ class ResBrandMixin(models.AbstractModel):
             if rec.brand_id and rec.brand_id.company_id:
                 rec.company_id = rec.brand_id.company_id
 
-    def setup_modifiers(self, node, field=None, context=None, in_tree_view=False):
+    def setup_modifiers(self, node, field=None):
         modifiers = {}
         if field is not None:
             ir_ui_view.transfer_field_to_modifiers(field, modifiers)
         ir_ui_view.transfer_node_to_modifiers(
-            node, modifiers, context=context, in_tree_view=in_tree_view
+            node, modifiers
         )
         ir_ui_view.transfer_modifiers_to_node(modifiers, node)
 
@@ -80,7 +80,7 @@ class ResBrandMixin(models.AbstractModel):
                 )
                 field = self.fields_get(["brand_use_level"])["brand_use_level"]
                 self.setup_modifiers(
-                    elem, field=field, context=self._context, in_tree_view=in_tree_view
+                    elem, field=field
                 )
                 node.addprevious(elem)
                 node.set(
@@ -93,7 +93,7 @@ class ResBrandMixin(models.AbstractModel):
                 )
                 field = result["fields"]["brand_id"]
                 self.setup_modifiers(
-                    node, field=field, context=self._context, in_tree_view=in_tree_view
+                    node, field=field
                 )
             result["arch"] = etree.tostring(doc, encoding="unicode")
         return result
