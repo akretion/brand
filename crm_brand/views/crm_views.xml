@@ -1,0 +1,15 @@
+<odoo>
+    <!--Copyright (C) 2020 Akretion (http://www.akretion.com)
+        @author Mourad EL HADJ MIMOUNE <mourad.elhadj.mimoune@akretion.com>
+        License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+    <record id="crm_case_form_view_oppor" model="ir.ui.view">
+        <field name="name">crm.lead.form.brand</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="brand_id" />
+            </field>
+        </field>
+    </record>
+</odoo>
