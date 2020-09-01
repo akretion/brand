@@ -10,7 +10,7 @@
     "website": "https://github.com/OCA/crm-workflow",
     "author": "Open Source Integrators, Odoo Community Association (OCA)",
     "license": "AGPL-3",
-    "depends": ["crm", "brand", "account_brand"],
+    "depends": ["sale_crm", "brand"],
     "data": ["views/crm_views.xml"],
     "installable": True,
     "development_status": "Beta",
