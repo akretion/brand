@@ -25,8 +25,8 @@ class ResBrandMixin(models.AbstractModel):
     )
     brand_use_level = fields.Selection(
         string="Brand Use Level",
-        default=_get_default_use_level,
         related="company_id.brand_use_level",
+        default=_get_default_use_level,
     )
     company_id = fields.Many2one(
         comodel_name="res.company",
