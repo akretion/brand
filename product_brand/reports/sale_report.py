@@ -15,6 +15,9 @@ class SaleReport(models.Model):
         res += """, t.product_brand_id"""
         return res
 
-    def _select_additional_fields(self, fields):
+    # flake8: noqa
+    # pylint:disable=dangerous-default-value
+    def _query(self, with_clause="", fields={}, groupby="", from_clause=""):
         fields["product_brand_id"] = ", t.product_brand_id as product_brand_id"
-        return super()._select_additional_fields(fields)
+        groupby += ", t.product_brand_id"
+        return super()._query(with_clause, fields, groupby, from_clause)
